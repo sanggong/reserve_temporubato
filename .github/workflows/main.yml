@@ -2,7 +2,7 @@ name: Check Temporubato Reservation
 
 on:
   schedule:
-    - cron: '*/5 * * * *' 
+    - cron: '0/5 * * * *' 
 
 jobs:
   check_temporubato_reservation:
@@ -24,5 +24,4 @@ jobs:
       - name: Run Script
         env:
           DISCORD_WEBHOOK : ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          python test.py
+        run: python test.py
