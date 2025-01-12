@@ -1,7 +1,7 @@
-import datetime
+import os
 import requests
 
-discord_url = "discord_webhook_url"
+discord_url = os.getenv("DISCORD_WEBHOOK")
 
 
 def discord_send_message(text):
