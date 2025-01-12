@@ -2,7 +2,7 @@ name: Check Temporubato Reservation
 
 on:
   schedule:
-    - cron: '*/1 * * * *' 
+    - cron: '*/5 * * * *' 
 
 jobs:
   check_temporubato_reservation:
