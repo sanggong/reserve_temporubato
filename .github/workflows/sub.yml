@@ -2,7 +2,7 @@ name: Every 10 Minutes schedule
 
 on:
   schedule:
-    - cron: '*/5 * * * *' 
+    - cron: '*/10 * * * *' 
 
 jobs:
   ten_minutes_schedule_job:
