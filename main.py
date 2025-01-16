@@ -7,7 +7,10 @@ from send_discord import discord_send_message
 
 
 def main():
-    response = requests.get("http://decoder.kr/book-rubato/")
+    header = {"User-gent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"}
+    response = requests.get("http://decoder.kr/book-rubato/", headers=header)
+    print(response.text)
+
     if response.status_code == 200:
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
@@ -36,7 +39,8 @@ def main():
             current_date += relativedelta(months=1)   # 한 달 간격으로 증가
         
         print(f"not_reserved: {not_reserved}")
-        discord_send_message(not_reserved)
+        if not_reserved:
+            discord_send_message(not_reserved)
 
 
 def find_not_reserved_in_month(reserve_month_info):
